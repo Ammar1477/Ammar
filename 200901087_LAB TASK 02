@@ -1,0 +1,30 @@
+class Stack:
+    def _init_(self):
+        self.container=()
+    def push(self,value):
+        self.container.append(value)
+    def pop(self):
+        return self.container.pop()
+    def is_empty(self):
+        return len(self.container)==0
+    def top(self):
+        return self.container[-1]
+    def size(self):
+        return len(self.container)
+stack = Stack()
+#to take the input of the equation:
+A = input("ENTER YOUR EQUATION : ")
+Condition = True
+try:
+    for i in A:
+        if i =='[' or i=='{' or i == '(':
+            stack.push(i)
+        elif i==']' or i=='}' or i==')':
+            stack.pop()
+    
+    if Condition:
+        print("valid")
+    else:
+        print("not valid")
+except:
+    print("not valid")
