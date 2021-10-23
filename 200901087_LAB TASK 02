@@ -1,30 +1,26 @@
-class Stack:
-    def _init_(self):
-        self.container=()
-    def push(self,value):
-        self.container.append(value)
-    def pop(self):
-        return self.container.pop()
-    def is_empty(self):
-        return len(self.container)==0
-    def top(self):
-        return self.container[-1]
-    def size(self):
-        return len(self.container)
-stack = Stack()
-#to take the input of the equation:
-A = input("ENTER YOUR EQUATION : ")
-Condition = True
-try:
-    for i in A:
-        if i =='[' or i=='{' or i == '(':
-            stack.push(i)
-        elif i==']' or i=='}' or i==')':
-            stack.pop()
+def check(operation):
     
-    if Condition:
-        print("valid")
-    else:
-        print("not valid")
-except:
-    print("not valid")
+ a = ["[","{","("]
+ b = ["]","}",")"]
+
+ stack_list = []
+ for i in operation:
+      if i in a:
+          stack_list.append(i)
+      elif i in b:
+          index_position = b.index(i)
+          if ((len(stack_list) > 0) and
+              (a[index_position] == stack_list[len(stack_list)-1])):
+              stack_list.pop()
+          else:
+              return "Not Valid"
+ if len(stack_list) == 0:
+      return "Valid"
+ else:
+      return "Not Valid"
+  
+#main
+string = input("Enter the braces you want to check : ")
+output = check(string)
+print(f"{string} is {output}")
+  
