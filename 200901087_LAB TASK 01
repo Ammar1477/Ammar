@@ -1,0 +1,15 @@
+name = input("Enter the string : ")
+name = name.lower()
+stack = []
+
+for letter in name:
+  stack.append(letter)
+  
+print(stack)
+reverse_stack = stack[::-1]
+print(reverse_stack)
+
+if stack == reverse_stack:
+    print('The string is a palindrome.')
+else:
+    print('The string is not a palindrome.')
