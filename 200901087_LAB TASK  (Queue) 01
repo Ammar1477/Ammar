@@ -1,0 +1,9 @@
+print("Queue implementation using Numpy")
+import numpy as np
+x = np.zeros(5)
+print(x)
+for i in range(10):
+  element = (input("Enter number: "))
+  x= np.delete(x,-1)
+  x = np.insert(x,0,element,axis=0)
+  print(x)
