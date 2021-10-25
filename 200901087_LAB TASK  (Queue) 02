@@ -1,0 +1,11 @@
+print("Queue implementation using Collections")
+from collections import deque
+x = deque()
+print(x)
+for i in range(10):
+  element = int(input("Enter number: "))
+  
+  x.appendleft(element)
+  if i > 4:
+      x.pop()
+  print(x)
